@@ -23,11 +23,13 @@ room = "2.6.1"
 hilt = "2.50"
 hiltCompiler = "1.2.0"
 coil = "2.5.0"
+awaitility="4.0.3"
 
 junit = "4.13.2"
 junitExt = "1.1.5"
 uiautomator = "2.3.0"
 espresso = "3.5.1"
+espressoContrib = "3.5.1"
 
 [libraries]
 androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
@@ -40,6 +42,8 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 okhttp-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+awaitility = { group = "org.awaitility", name = "awaitility-kotlin", version = "4.0.3" }
+
 
 compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "composeActivity" }
 compose-material = { group = "androidx.compose.material3", name = "material3", version.ref = "material" }
@@ -77,6 +81,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 junit-ext-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitExt" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

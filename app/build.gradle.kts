@@ -72,8 +72,10 @@ android {
 }
 
 dependencies {
+
     // View
     implementation(libs.androidx.ktx)
+    implementation(libs.awaitility)
     implementation(libs.fragment.navigation)
     implementation(libs.ui.navigation)
     implementation(libs.flexbox)
@@ -91,6 +93,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.espresso.contrib)
     kapt(libs.hilt.compiler)
     kapt(libs.hilt.compiler.android)
 
