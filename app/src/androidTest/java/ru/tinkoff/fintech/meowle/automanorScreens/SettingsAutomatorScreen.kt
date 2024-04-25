@@ -3,15 +3,10 @@ package ru.tinkoff.fintech.meowle.automanorScreens
 import androidx.test.uiautomator.By
 import org.junit.Assert.assertEquals
 import ru.tinkoff.fintech.meowle.R
-import ru.tinkoff.fintech.meowle.TestsConstants
+import ru.tinkoff.fintech.meowle.utils.TestsConstants
 
 class SettingsAutomatorScreen: BaseUiAutomatorScreen() {
-    private val applyButton = By.res(TestsConstants.PACKAGE_NAME, "add_button")
     private val logoutButton = By.res(TestsConstants.PACKAGE_NAME, "logout_btn")
-
-    fun clickApply() {
-        waitFindObject(applyButton).click()
-    }
 
     fun clickLogout() {
         waitFindObject(logoutButton).click()

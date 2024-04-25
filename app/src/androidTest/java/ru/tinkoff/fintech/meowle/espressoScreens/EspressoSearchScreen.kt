@@ -14,13 +14,15 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.awaitility.kotlin.await
 import org.hamcrest.Matchers.containsString
 import ru.tinkoff.fintech.meowle.R
-import ru.tinkoff.fintech.meowle.customMatchers.RecyclerViewMatchers
+import ru.tinkoff.fintech.meowle.customMatchers.RecyclerViewMatcher
 import java.util.concurrent.TimeUnit
 
 class EspressoSearchScreen {
     private val searchTextField = withId(R.id.et_search)
     private val searchButton = withId(R.id.search_button)
     private val searchResults = withId(R.id.rv_search_result_list)
+
+
     fun typeSearchQuery(text: String) {
         onView(searchTextField).perform(replaceText(text), closeSoftKeyboard())
     }
@@ -35,16 +37,16 @@ class EspressoSearchScreen {
         }
     }
 
-    fun checkFirstResultContains(text: String) {
+    fun checkFirstResultContainsText(text: String) {
         onView(searchResults)
             .check(
                 matches(
-                    RecyclerViewMatchers.atPosition(0, hasDescendant(withText(containsString(text))))
+                    RecyclerViewMatcher(0, hasDescendant(withText(containsString(text))))
                 )
             )
     }
 
-    fun clickFirstResult() {
+    fun clickFirstResultItem() {
         onView(searchResults).perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                 0,

@@ -82,6 +82,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.glide)
     implementation(libs.splashscreen)
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.4.0")
 
     // Network
     implementation(libs.retrofit)

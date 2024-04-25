@@ -45,6 +45,7 @@ okhttp-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercept
 awaitility = { group = "org.awaitility", name = "awaitility-kotlin", version = "4.0.3" }
 
 
+
 compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "composeActivity" }
 compose-material = { group = "androidx.compose.material3", name = "material3", version.ref = "material" }
 

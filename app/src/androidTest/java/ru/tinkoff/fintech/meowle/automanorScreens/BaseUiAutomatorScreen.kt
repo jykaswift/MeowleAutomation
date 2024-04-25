@@ -17,8 +17,8 @@ abstract class BaseUiAutomatorScreen {
         return uiDevice.wait(Until.findObject(selector), timeout)
     }
 
-    protected fun waitHasObject(selector: BySelector, timeout: Long = waitTimeout) {
-        uiDevice.wait(Until.hasObject(selector), timeout)
+    protected fun waitHasObject(selector: BySelector, timeout: Long = waitTimeout): Boolean {
+        return uiDevice.wait(Until.hasObject(selector), timeout)
     }
 
     protected fun resourceString(@StringRes stringId: Int): String {

@@ -15,7 +15,6 @@ import ru.tinkoff.fintech.meowle.rules.AuthPreferencesRule
 class SearchTests {
 
     private val activityScenarioRule = activityScenarioRule<AuthActivity>()
-
     private val preferencesRule = AuthPreferencesRule()
 
     @get:Rule
@@ -24,21 +23,27 @@ class SearchTests {
     @Test
     fun searchResultsTest() {
         val searchScreen = EspressoSearchScreen()
-        searchScreen.typeSearchQuery("кот")
+        val searchQuery = "кот"
+
+        searchScreen.typeSearchQuery(searchQuery)
         searchScreen.clickSearchButton()
         searchScreen.waitForResults()
-        searchScreen.checkFirstResultContains("кот")
+
+        searchScreen.checkFirstResultContainsText(searchQuery)
     }
 
     @Test
     fun openFirstCatPageBySearchResultsTest() {
         val searchScreen = EspressoSearchScreen()
         val catProfileScreen = EspressoCatProfileScreen()
-        searchScreen.typeSearchQuery("кот")
+        val searchQuery = "Большойкот"
+
+        searchScreen.typeSearchQuery(searchQuery)
         searchScreen.clickSearchButton()
         searchScreen.waitForResults()
-        searchScreen.clickFirstResult()
-        catProfileScreen.compareDetailTitleNameWith("Артемовкот")
+        searchScreen.clickFirstResultItem()
+
+        catProfileScreen.compareDetailTitleNameWith(searchQuery)
     }
 
 }

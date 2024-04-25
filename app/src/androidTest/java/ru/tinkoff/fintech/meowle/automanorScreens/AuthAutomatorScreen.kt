@@ -1,7 +1,8 @@
 package ru.tinkoff.fintech.meowle.automanorScreens
 
 import androidx.test.uiautomator.By
-import ru.tinkoff.fintech.meowle.TestsConstants
+import org.junit.Assert.assertEquals
+import ru.tinkoff.fintech.meowle.utils.TestsConstants
 
 class AuthAutomatorScreen: BaseUiAutomatorScreen() {
 
@@ -22,6 +23,7 @@ class AuthAutomatorScreen: BaseUiAutomatorScreen() {
     }
 
     fun checkActivityIsOpen() {
-        waitHasObject(submitButton, 10000L)
+        val isButtonDisplayed = waitHasObject(submitButton)
+        assertEquals(isButtonDisplayed, true)
     }
 }

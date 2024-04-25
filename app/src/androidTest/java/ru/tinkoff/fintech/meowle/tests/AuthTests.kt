@@ -6,9 +6,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import ru.tinkoff.fintech.meowle.automanorScreens.AuthAutomatorScreen
-import ru.tinkoff.fintech.meowle.automanorScreens.BottomNavigationAutomator
+import ru.tinkoff.fintech.meowle.automanorScreens.AutomatorPageController
 import ru.tinkoff.fintech.meowle.automanorScreens.SettingsAutomatorScreen
 import ru.tinkoff.fintech.meowle.presentation.view.AuthActivity
+import ru.tinkoff.fintech.meowle.utils.NavigationButton
 
 @RunWith(AndroidJUnit4::class)
 class AuthTests {
@@ -19,27 +20,31 @@ class AuthTests {
     @Test
     fun logoutTest() {
         val authScreen = AuthAutomatorScreen()
-        val bottomNavigation = BottomNavigationAutomator()
+        val bottomNavigation = AutomatorPageController()
         val settingsScreen = SettingsAutomatorScreen()
 
         authScreen.enterName("Евгений")
         authScreen.enterPhone("+79643228023")
         authScreen.clickSubmit()
-        bottomNavigation.clickNavigationBarButton(BottomNavigationAutomator.NavigationButton.SETTINGS)
+
+        bottomNavigation.clickNavigationBarButton(NavigationButton.SETTINGS)
         settingsScreen.clickLogout()
+
         authScreen.checkActivityIsOpen()
     }
 
     @Test
     fun nameMatchOnSettingsScreenTest() {
         val authScreen = AuthAutomatorScreen()
-        val bottomNavigation = BottomNavigationAutomator()
+        val pageController = AutomatorPageController()
         val settingsScreen = SettingsAutomatorScreen()
         val name = "Евгений"
+
         authScreen.enterName(name)
         authScreen.enterPhone("+79643228023")
         authScreen.clickSubmit()
-        bottomNavigation.clickNavigationBarButton(BottomNavigationAutomator.NavigationButton.SETTINGS)
+
+        pageController.clickNavigationBarButton(NavigationButton.SETTINGS)
         settingsScreen.matchLogoutButtonNameLabelWith(name)
     }
 }
