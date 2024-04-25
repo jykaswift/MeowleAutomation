@@ -12,9 +12,8 @@ import ru.tinkoff.fintech.meowle.data.database.CatsDatabase
 import ru.tinkoff.fintech.meowle.data.repository.CatsRepositoryImpl
 import ru.tinkoff.fintech.meowle.di.AppModule
 import ru.tinkoff.fintech.meowle.domain.cat.Cat
-import ru.tinkoff.fintech.meowle.domain.cat.Gender
 
-class AddCatToDbRule(private val cat: Cat) : TestRule {
+class AddCatToFavoriteRule(private val cat: Cat) : TestRule {
     override fun apply(base: Statement, description: Description): Statement {
         return object : Statement() {
             override fun evaluate() {

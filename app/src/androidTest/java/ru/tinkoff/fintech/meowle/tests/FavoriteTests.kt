@@ -14,7 +14,7 @@ import ru.tinkoff.fintech.meowle.espressoScreens.EspressoFavoriteScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoPageController
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoRatingScreen
 import ru.tinkoff.fintech.meowle.presentation.view.AuthActivity
-import ru.tinkoff.fintech.meowle.rules.AddCatToDbRule
+import ru.tinkoff.fintech.meowle.rules.AddCatToFavoriteRule
 import ru.tinkoff.fintech.meowle.rules.AuthPreferencesRule
 import ru.tinkoff.fintech.meowle.utils.NavigationButton
 
@@ -23,7 +23,7 @@ class FavoriteTests {
 
     private val activityScenarioRule = activityScenarioRule<AuthActivity>()
     private val preferencesRule = AuthPreferencesRule()
-    private val addCatToFavorite = AddCatToDbRule(Cat(
+    private val addCatToFavorite = AddCatToFavoriteRule(Cat(
         17650L,
         "Кицвунг",
         "",
