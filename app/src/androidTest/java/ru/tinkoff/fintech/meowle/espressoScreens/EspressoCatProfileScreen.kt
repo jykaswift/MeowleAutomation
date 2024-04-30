@@ -28,7 +28,6 @@ class EspressoCatProfileScreen {
         await.atMost(2, TimeUnit.SECONDS).untilAsserted {
             onView(favoriteButton).check(matches(DrawableMatcher(R.drawable.ic_favourite_pressed)))
         }
-
     }
 
     fun compareDetailTitleNameWith(titleName: String) {

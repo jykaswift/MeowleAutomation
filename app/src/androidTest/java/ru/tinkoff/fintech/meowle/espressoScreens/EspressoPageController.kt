@@ -1,11 +1,9 @@
 package ru.tinkoff.fintech.meowle.espressoScreens
 
 
-import android.view.View
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import org.hamcrest.Matcher
 import ru.tinkoff.fintech.meowle.R
 import ru.tinkoff.fintech.meowle.utils.NavigationButton
 

@@ -13,16 +13,14 @@ import ru.tinkoff.fintech.meowle.espressoScreens.EspressoCatProfileScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoFavoriteScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoPageController
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoRatingScreen
-import ru.tinkoff.fintech.meowle.presentation.view.AuthActivity
+import ru.tinkoff.fintech.meowle.presentation.MainActivity
 import ru.tinkoff.fintech.meowle.rules.AddCatToFavoriteRule
-import ru.tinkoff.fintech.meowle.rules.AuthPreferencesRule
 import ru.tinkoff.fintech.meowle.utils.NavigationButton
 
 @RunWith(AndroidJUnit4::class)
 class FavoriteTests {
 
-    private val activityScenarioRule = activityScenarioRule<AuthActivity>()
-    private val preferencesRule = AuthPreferencesRule()
+    private val activityScenarioRule = activityScenarioRule<MainActivity>()
     private val addCatToFavorite = AddCatToFavoriteRule(Cat(
         17650L,
         "Кицвунг",
@@ -32,7 +30,7 @@ class FavoriteTests {
     ))
 
     @get:Rule
-    val ruleChain: RuleChain = RuleChain.outerRule(preferencesRule).around(activityScenarioRule).around(addCatToFavorite)
+    val ruleChain: RuleChain = RuleChain.outerRule(activityScenarioRule).around(addCatToFavorite)
 
     @Test
     fun addFavoriteFromDetailViaRatingList() {
