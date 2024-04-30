@@ -35,8 +35,8 @@ class AddCatTests {
         // Тестирование toast невозможно с api 30+ версии
         // https://github.com/android/android-test/issues/803
         // Не через automator не через espresso
-
     }
+
     @Test
     fun openPhotoPickerTest() {
         Intents.init()

@@ -16,6 +16,7 @@ import ru.tinkoff.fintech.meowle.utils.NavigationButton
 class RatingAndDetailsTests {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<MainActivity>()
+
     @Test
     fun increasingCatLikeTest() {
         val pageController = EspressoPageController()
