@@ -1,6 +1,6 @@
 package ru.tinkoff.fintech.meowle.tests
 
-import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.Espresso
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
@@ -12,32 +12,40 @@ import ru.tinkoff.fintech.meowle.domain.cat.Gender
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoCatProfileScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoFavoriteScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoPageController
-import ru.tinkoff.fintech.meowle.espressoScreens.EspressoRatingScreen
 import ru.tinkoff.fintech.meowle.presentation.MainActivity
 import ru.tinkoff.fintech.meowle.rules.AddCatToFavoriteRule
 import ru.tinkoff.fintech.meowle.utils.NavigationButton
 
 @RunWith(AndroidJUnit4::class)
-class FavoriteTests {
+class FavoriteTestsWithMockedData {
+
+    private val activityScenarioRule = activityScenarioRule<MainActivity>()
+    private val addCatToFavorite = AddCatToFavoriteRule(
+        Cat(
+        17650L,
+        "Кицвунг",
+        "",
+        Gender.UNISEX, 0,
+        0
+    )
+    )
 
     @get:Rule
-    val activityScenarioRule = activityScenarioRule<MainActivity>()
+    val ruleChain: RuleChain = RuleChain.outerRule(activityScenarioRule).around(addCatToFavorite)
 
     @Test
-    fun addFavoriteFromDetailViaRatingList() {
+    fun removeCatFromFavoritesTest() {
         val pageController = EspressoPageController()
-        val ratingScreen = EspressoRatingScreen()
-        val profileScreen = EspressoCatProfileScreen()
         val favoriteScreen = EspressoFavoriteScreen()
-        val targetCatName = "Жевоыьторп"
+        val profileScreen = EspressoCatProfileScreen()
+        val targetCatName = "Кицвунг"
 
-        pageController.clickNavigationBarButton(NavigationButton.RATING)
-        ratingScreen.waitForResults()
-        ratingScreen.clickFirstCatAtRatingList()
-
-        profileScreen.clickFavoriteButton()
         pageController.clickNavigationBarButton(NavigationButton.FAVORITE)
+        favoriteScreen.clickCatWith(targetCatName)
+        profileScreen.checkFavoriteButtonIsPressed()
+        profileScreen.clickFavoriteButton()
 
-        favoriteScreen.findCatBy(targetCatName)
+        Espresso.pressBack()
+        favoriteScreen.checkCatDoesNotExistBy(targetCatName)
     }
 }
