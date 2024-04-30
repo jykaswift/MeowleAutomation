@@ -1,20 +1,15 @@
 package ru.tinkoff.fintech.meowle.tests
 
-import androidx.test.espresso.Espresso.pressBack
 import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
-import ru.tinkoff.fintech.meowle.domain.cat.Cat
-import ru.tinkoff.fintech.meowle.domain.cat.Gender
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoCatProfileScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoFavoriteScreen
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoPageController
 import ru.tinkoff.fintech.meowle.espressoScreens.EspressoRatingScreen
 import ru.tinkoff.fintech.meowle.presentation.MainActivity
-import ru.tinkoff.fintech.meowle.rules.AddCatToFavoriteRule
 import ru.tinkoff.fintech.meowle.utils.NavigationButton
 
 @RunWith(AndroidJUnit4::class)
