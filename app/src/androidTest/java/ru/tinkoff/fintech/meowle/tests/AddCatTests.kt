@@ -24,7 +24,7 @@ class AddCatTests {
     fun positiveAddingCatTest() {
         val pageController = AutomatorPageController()
         val addCatScreen = EspressoAddCatScreen()
-        val catName = "алохакот"
+        val catName = "алешкаалешка"
         val catDescription = "Просто кот"
 
         pageController.clickNavigationBarButton(NavigationButton.ADD)
@@ -32,6 +32,10 @@ class AddCatTests {
         addCatScreen.setGender(Gender.MALE)
         addCatScreen.enterDescription(catDescription)
         addCatScreen.clickAddButton()
+        // Тестирование toast невозможно с api 30+ версии
+        // https://github.com/android/android-test/issues/803
+        // Не через automator не через espresso
+
     }
     @Test
     fun openPhotoPickerTest() {
